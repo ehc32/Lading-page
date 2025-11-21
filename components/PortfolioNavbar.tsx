@@ -7,13 +7,12 @@ import Image from "next/image"
 
 const navigationLinks = [
   { name: "Inicio", href: "#home" },
-  { name: "Sobre Nosotros", href: "#pricing" },
-  { name: "Servicios", href: "#solutions" },
-  { name: "Experiencias", href: "#resources" },
-  { name: "Blog", href: "#blog" },
-] as any[]
+  { name: "Sobre Nosotros", href: "#sobre-nosotros" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Experiencias", href: "#experiencias" },
+  { name: "Preguntas", href: "#preguntas" },
+] as const
 
-// @component: PortfolioNavbar
 export const PortfolioNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -35,7 +34,7 @@ export const PortfolioNavbar = () => {
   }, [])
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+    setIsMobileMenuOpen((prev) => !prev)
   }
 
   const closeMobileMenu = () => {
@@ -61,7 +60,6 @@ export const PortfolioNavbar = () => {
     setSendOk(false)
   }
 
-  // Envío real del formulario
   const handleContactSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSendError(null)
@@ -88,12 +86,12 @@ export const PortfolioNavbar = () => {
       const data = await res.json()
 
       if (!res.ok || !data.ok) {
-        throw new Error(data.error || "Error al enviar el formulario")
+        throw new Error(data.error || data.details || "Error al enviar el formulario")
       }
 
       setSendOk(true)
       form.reset()
-      // si quieres cerrar el modal automáticamente:
+      // si quieres cerrar el modal al enviar:
       // closeContactModal()
     } catch (err: any) {
       console.error(err)
@@ -261,7 +259,7 @@ export const PortfolioNavbar = () => {
               </button>
 
               <div className="grid gap-8 md:grid-cols-2">
-                {/* FORMULARIO (mismo diseño + names) */}
+                {/* FORMULARIO */}
                 <div>
                   <h2
                     className="text-xl md:text-2xl font-semibold mb-2 text-[#111A4A]"
