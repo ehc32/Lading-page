@@ -172,12 +172,6 @@ export const BankingScaleHero = () => {
               }}
             >
               Ser una corporación líder en la promoción, prevención y atención integral de la salud mental, reconocida por su compromiso con el bienestar emocional de la población, la formación de profesionales competentes y la implementación de estrategias innovadoras que fortalezcan el equilibrio psicológico y social de las comunidades a nivel regional y nacional.            </p>
-            <button className="relative inline-flex justify-center items-center leading-4 text-center cursor-pointer whitespace-nowrap outline-none font-medium h-9 text-[#232730] bg-white/50 backdrop-blur-sm shadow-[0_1px_1px_0_rgba(255,255,255,0),0_0_0_1px_rgba(87,90,100,0.12)] transition-all duration-200 ease-in-out rounded-lg px-4 mt-5 text-sm group hover:shadow-[0_1px_2px_0_rgba(0,0,0,0.05),0_0_0_1px_rgba(87,90,100,0.18)]">
-              <span className="relative z-10 flex items-center gap-1">
-                Learn about our platform
-                <ArrowRight className="w-4 h-4 -mr-1 transition-transform duration-150 group-hover:translate-x-1" />
-              </span>
-            </button>
           </div>
 
           <div className="col-span-12 md:col-span-6">
@@ -242,7 +236,7 @@ export const BankingScaleHero = () => {
             </div>
           </div>
 
-         {/*  <div className="col-span-12">
+          {/*  <div className="col-span-12">
             <div className="overflow-visible pb-5">
               <div className="grid grid-cols-12 gap-5 relative z-10">
                 {stats.map((stat, index) => (
