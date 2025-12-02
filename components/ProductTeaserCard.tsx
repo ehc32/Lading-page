@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
+
 type ProductTeaserCardProps = {
   dailyVolume?: string
   dailyVolumeLabel?: string
@@ -18,81 +19,60 @@ type ProductTeaserCardProps = {
 // @component: ProductTeaserCard
 export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   const {
-    dailyVolume = "1,430,992,688",
-    dailyVolumeLabel = "",
-    headline = "Corporación Admipsalud Consultores",
-    subheadline = "Bienvenidos al sitio oficial de la Corporacion Admisalud. Somos una entidad privada que presta servicios de atención en salud mental, con profesionales especializados en psicología, neuropsicología y psiquiatría.",
-    description = "Trusted by fast-growing teams and enterprises, Auralink powers smarter communication across 1,000+ organizations — with enterprise-grade security, multilingual analysis, and instant emotional detection.",
+    dailyVolume = "",
+    dailyVolumeLabel = "Salud mental integral y humana",
+    headline = "Bienvenidos a Corporación Admipsalud Consultores",
+    subheadline = "Atención integral en salud mental con profesionales especializados en psicología, neuropsicología y psiquiatría. Brindamos un entorno cálido, humano y confidencial para ti y tu familia.",
+    description = "",
     videoSrc = "",
     posterSrc = "/ima/doc1.jpg",
-    primaryButtonText = "Ver Servicios",
+    primaryButtonText = "Ver servicios",
     primaryButtonHref = "",
     secondaryButtonHref = "",
   } = props
 
-  // @return
   return (
-    <section className="w-full px-8 pt-32 pb-16">
+    <section className="w-full px-6 lg:px-8 pt-24 lg:pt-32 pb-16">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-12 gap-2">
+        <div className="grid grid-cols-12 gap-4 lg:gap-6">
+          {/* CARD DE TEXTO */}
           <motion.div
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
               ease: [0.645, 0.045, 0.355, 1],
             }}
-            className="col-span-12 lg:col-span-6 bg-[#e9e9e9] rounded-[40px] p-12 lg:p-16 flex flex-col justify-end aspect-square overflow-hidden"
+            className="col-span-12 lg:col-span-6 bg-[#f3f4f6] rounded-[32px] lg:rounded-[40px] p-8 lg:p-12 flex flex-col justify-center aspect-square lg:aspect-[4/3] overflow-hidden shadow-sm"
           >
             <a
               href={primaryButtonHref}
               onClick={(e) => e.preventDefault()}
-              className="flex flex-col gap-1 text-[#9a9a9a]"
+              className="flex flex-col gap-1 text-[#6b7280] mb-4"
             >
               <motion.span
-                initial={{
-                  transform: "translateY(20px)",
-                  opacity: 0,
-                }}
-                animate={{
-                  transform: "translateY(0px)",
-                  opacity: 1,
-                }}
+                initial={{ transform: "translateY(20px)", opacity: 0 }}
+                animate={{ transform: "translateY(0px)", opacity: 1 }}
                 transition={{
                   duration: 0.4,
                   ease: [0.645, 0.045, 0.355, 1],
-                  delay: 0.6,
+                  delay: 0.4,
                 }}
-                className="text-sm uppercase tracking-tight font-mono flex items-center gap-1"
+                className="text-xs lg:text-sm uppercase tracking-[0.18em] font-mono flex items-center gap-1"
                 style={{
-                  fontFamily: "var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace",
+                  fontFamily:
+                    "var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace",
                 }}
               >
                 {dailyVolumeLabel}
-                <ArrowUpRight className="w-[0.71em] h-[0.71em]" />
+                <ArrowUpRight className="w-[0.9em] h-[0.9em]" />
               </motion.span>
-              <span
-                className="text-[32px] leading-[160px] tracking-tight bg-gradient-to-r from-[#202020] via-[#00517f] via-[#52aee3] to-[#9ed2fc] bg-clip-text text-transparent"
-                style={{
-                  fontFeatureSettings: '"clig" 0, "liga" 0',
-                  height: "98px",
-                  marginBottom: "0px",
-                  paddingTop: "",
-                  display: "none",
-                }}
-              >
-                {dailyVolume}
-              </span>
             </a>
 
             <h1
-              className="text-[56px] leading-[60px] tracking-tight text-[#202020] max-w-[520px] mb-6"
+              className="text-[32px] leading-[1.1] lg:text-[44px] lg:leading-[1.1] tracking-tight text-[#111827] max-w-[520px] mb-4 lg:mb-6"
               style={{
-                fontWeight: "500",
+                fontWeight: 600,
                 fontFamily: "var(--font-figtree), Figtree",
               }}
             >
@@ -100,7 +80,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             </h1>
 
             <p
-              className="text-lg leading-7 text-[#404040] max-w-[520px] mb-6"
+              className="text-base lg:text-lg leading-7 text-[#4b5563] max-w-[520px] mb-6"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
               }}
@@ -108,53 +88,36 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
               {subheadline}
             </p>
 
-            <div className="max-w-[520px] mb-0">
-              <p
-                className="text-base leading-5"
+            <div className="mt-4">
+              <a
+                href={primaryButtonHref}
+                onClick={(e) => e.preventDefault()}
+                className="inline-flex items-center justify-center cursor-pointer text-white rounded-full px-8 py-3 text-base leading-4 transition-all duration-150 ease-[cubic-bezier(0.455,0.03,0.515,0.955)] hover:rounded-2xl"
                 style={{
-                  display: "none",
+                  background: "#156d95", // mismo color que tenías
                 }}
               >
-                {description}
-              </p>
+                {primaryButtonText}
+              </a>
+
             </div>
-
-            <ul className="flex gap-1.5 flex-wrap mt-10">
-              <li>
-                <a
-                  href={primaryButtonHref}
-                  onClick={(e) => e.preventDefault()}
-                  className="block cursor-pointer text-white bg-[#0988f0] rounded-full px-[18px] py-[15px] text-base leading-4 whitespace-nowrap transition-all duration-150 ease-[cubic-bezier(0.455,0.03,0.515,0.955)] hover:rounded-2xl"
-                  style={{
-                    background: "#156d95",
-                  }}
-                >
-                  {primaryButtonText}
-                </a>
-              </li>
-
-            </ul>
           </motion.div>
 
+          {/* CARD DE IMAGEN / ILUSTRACIÓN */}
           <motion.div
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
               ease: [0.645, 0.045, 0.355, 1],
               delay: 0.2,
             }}
-            className="col-span-12 lg:col-span-6 bg-white rounded-[40px] flex justify-center items-center aspect-square overflow-hidden"
+            className="col-span-12 lg:col-span-6 rounded-[32px] lg:rounded-[40px] flex justify-center items-center aspect-square lg:aspect-[4/3] overflow-hidden bg-white shadow-sm"
             style={{
               backgroundImage: "url('/img/Imagen1.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              opacity: 1,
             }}
           >
             <video
@@ -166,13 +129,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
               poster={posterSrc}
               className="block w-full h-full object-cover"
               style={{
-                backgroundImage:
-                  "url(https://storage.googleapis.com/storage.magicpath.ai/user/282171029206482944/assets/38855cdf-b40a-445b-a17c-c2bbb35c884e.png)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                opacity: "1",
-                display: "none",
+                display: "none", // usamos solo la ilustración de fondo
               }}
             />
           </motion.div>
