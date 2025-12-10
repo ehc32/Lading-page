@@ -80,7 +80,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             </h1>
 
             <p
-              className="text-base lg:text-lg leading-7 text-[#4b5563] max-w-[520px] mb-6"
+              className="text-base lg:text-lg leading-7 text-[#4b5563] max-w-[520px] mb-6 text-justify"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
               }}

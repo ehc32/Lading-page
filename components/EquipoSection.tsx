@@ -17,7 +17,7 @@ export function EquipoSection() {
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
             Equipo Interdisciplinario
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground mb-6">
+          <p className="text-base md:text-lg text-muted-foreground mb-6 text-justify">
             La Corporación Admipsalud Consultores cuenta con un equipo humano
             altamente calificado y comprometido con la promoción, prevención y
             atención integral de la salud mental.
